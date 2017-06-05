@@ -227,9 +227,9 @@ switch (event.which) {
   case 37:
     this.furry.direction = 'left';
     break;
-  case 38: (....) //dopisz resztę.
+  case 38: (....)
+   //dopisz resztę.
 ```
-
 ## 11. Sprawdzanie kolizji z monetą.
 
 W języku twórców gier, kolizja między dwoma elementami następuje wtedy, gdy elementy te na ekranie nachodzą na siebie. W naszej grze kolizja nastąpi wtedy, gdy pozycja Furry'ego będzie taka sama, jak pozycja monety.
