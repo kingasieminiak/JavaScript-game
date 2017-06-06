@@ -73,7 +73,7 @@
 var Furry = function(){
   this.x = 0;
   this.y = 0;
-  this.direction = "right";
+  this.direction = "bottom";
 }
 
 var Coin = function(){
@@ -118,15 +118,16 @@ var Game = function(){
         this.furry.y += 1;
     };
 
-    this.gameOver();
-    this.showFurry();
-    this.checkCoinCollision();
+    if(!this.gameOver()){
+      this.checkCoinCollision();
+      this.showFurry();
+    }
   };
   // problem z zapisem w tej funkcji
   this.startGame = function(){
 
     var self = this;
-    self.idSetInterval = setInterval( function(){
+    this.idSetInterval = setInterval( function(){
       self.moveFurry();
     }, 250);
   };
@@ -169,10 +170,14 @@ var Game = function(){
     if ( (this.furry.x < 0 || this.furry.x > 9) || (this.furry.y < 0 || this.furry.y > 9) ){
 
       clearInterval(this.idSetInterval);
-      this.hideVisibleFurry();
+      //this.hideVisibleFurry();
 
+      document.getElementById("board").classList.add("invisible");
       var gameOverScores = document.getElementById("over");
       gameOverScores.classList.remove("invisible");
+      return true;
+    }else{
+      return false;
     };
   };
 };
