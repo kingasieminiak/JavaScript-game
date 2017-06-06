@@ -19,6 +19,10 @@ var Game = function(){
     return x + (y * 10);
   };
 
+  this.showCoin = function(){
+    this.board[ this.index(this.coin.x,this.coin.y) ].classList.add('coin');
+  };
+
   this.showFurry = function(){
      this.board[ this.index(this.furry.x, this.furry.y) ].classList.add("furry");
   };
@@ -26,7 +30,7 @@ var Game = function(){
   this.hideVisibleFurry = function(){
     var classFurry = document.querySelector(".furry");
   };
-
+  // od tego momentu jest problem z Furrim
   this.moveFurry = function(){
 
     this.hideVisibleFurry();
@@ -43,36 +47,35 @@ var Game = function(){
 
     this.checkCoinCollision();
   };
+  // problem z zapisem w tej funkcji
+  this.startGame = function(){
 
-  this.showCoin = function(){
-    this.board[ this.index(this.coin.x,this.coin.y) ].classList.add('coin');
+    var self = this; // tu próbowałam różnych kombinacji
+
+    this.idSetInterval = setInterval( function(){
+      self.moveFurry(); // tu próbowałam różnych kombinacji
+      console.log("HI"); // sam interwał działa, bo HI się wypisuje
+    }, 250);
   };
 
   this.turnFurry = function(event){
 
+    var self = this; // tu próbowałam różnych kombinacji
+
     switch (event.which){
       case 37:
-        this.furry.direction = "left";
+        self.furry.direction = "left";
         break;
       case 38:
-        this.furry.direction = "right";
+        self.furry.direction = "right";
         break;
       case 39:
-        this.furry.direction = "top";
+        self.furry.direction = "top";
         break;
       case 40:
-        this.furry.direction = "bottom";
+        self.furry.direction = "bottom";
         break;
     };
-  };
-
-  this.startGame = function(){
-    var self = this;
-
-    self.idSetInterval = setInterval( function(){
-      self.moveFurry();
-      console.log("HI");
-    }, 250);
   };
 
   this.checkCoinCollision = function(){
