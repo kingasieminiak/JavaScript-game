@@ -193,11 +193,23 @@ var Game = function(){
   };
 };
 
-var myGame = new Game();
-myGame.startGame();
 
-document.addEventListener("keydown", function(event){
-    myGame.turnFurry(event);
+// rozpoczęcie gry
+
+var buttonStart = document.getElementById("start")
+buttonStart.addEventListener("click", function(event){
+
+  document.querySelector(".start-game").classList.add("invisible");
+  // gameOverScores.classList.add("invisible");
+  document.getElementById("board").classList.remove("invisible");
+  document.getElementById("score").classList.remove("invisible");
+
+  var myGame = new Game();
+  myGame.startGame();
+
+  document.addEventListener("keydown", function(event){
+      myGame.turnFurry(event);
+  });
 });
 
 // event dla buttona play-again
@@ -211,8 +223,6 @@ buttonAgain.addEventListener("click", function(event){
 
   var nextGame = new Game();
   nextGame.cleanUp();
-  // nextGame.showFurry();
-  // nextGame.showCoin();
   nextGame.startGame();
 
   document.addEventListener("keydown", function(event){
@@ -220,11 +230,6 @@ buttonAgain.addEventListener("click", function(event){
   });
 
 });
-
-// var buttonStart = document.getElementsByClassName("start")
-// var myGame = new Game();
-// function playGame(event){
-// }
 
 
 /***/ })
