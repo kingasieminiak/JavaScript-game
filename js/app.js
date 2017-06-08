@@ -23,6 +23,14 @@ var Game = function(){
     this.board[ this.index(this.coin.x,this.coin.y) ].classList.add('coin');
   };
 
+  this.cleanUp = function(){
+    document.querySelector("#score strong").innerText = this.score;
+    var coinLeft = document.querySelector("#board div.coin");
+    if(coinLeft !== null){
+      coinLeft.classList.remove('coin');
+    }
+  };
+
   this.showFurry = function(){
      this.board[ this.index(this.furry.x, this.furry.y) ].classList.add("furry");
   };
@@ -31,7 +39,7 @@ var Game = function(){
     var classFurry = document.querySelector(".furry");
     classFurry.classList.remove('furry');
   };
-  // od tego momentu jest problem z Furrim
+
   this.moveFurry = function(){
 
     this.hideVisibleFurry();
@@ -51,8 +59,11 @@ var Game = function(){
       this.showFurry();
     }
   };
-  // problem z zapisem w tej funkcji
+
   this.startGame = function(){
+
+    this.showFurry();
+    this.showCoin();
 
     var self = this;
     this.idSetInterval = setInterval( function(){
@@ -110,12 +121,35 @@ var Game = function(){
   };
 };
 
-
 var myGame = new Game();
-myGame.showFurry();
-myGame.showCoin();
 myGame.startGame();
 
 document.addEventListener("keydown", function(event){
     myGame.turnFurry(event);
 });
+
+// event dla buttona play-again
+
+var buttonAgain = document.getElementById("play-again");
+buttonAgain.addEventListener("click", function(event){
+
+  var gameOverScores = document.getElementById("over");
+  gameOverScores.classList.add("invisible");
+  document.getElementById("board").classList.remove("invisible");
+
+  var nextGame = new Game();
+  nextGame.cleanUp();
+  // nextGame.showFurry();
+  // nextGame.showCoin();
+  nextGame.startGame();
+
+  document.addEventListener("keydown", function(event){
+      nextGame.turnFurry(event);
+  });
+
+});
+
+// var buttonStart = document.getElementsByClassName("start")
+// var myGame = new Game();
+// function playGame(event){
+// }
