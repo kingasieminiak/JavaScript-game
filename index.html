@@ -6,6 +6,7 @@
     <title>Javascript Furry game</title>
     <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
     <link rel='stylesheet' href='css/style.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -14,7 +15,12 @@
     <div>
       <img src="images/furryStart.png" alt="my furry icon">
       <h1>Welcome to the Furry game</h1>
-      <button type="button" name="button" id="start">PLAY</button>
+      <button type="button" name="button" id="start">
+        <span class="inner">PUSH ME TO PLAY</span>
+      </button>
+      <p class="device-info">
+        To play this game, use a device with a resolution of 720 pixels or more.
+      </p>
     </div>
   </section>
 
@@ -133,7 +139,9 @@
   <section id='over' class='invisible'>
     <div>
       <p>Ups... You lost!</p>
-      <button type="button" name="button" id="play-again">TRY AGAIN</button>
+      <button type="button" name="button" id="play-again">
+        <span class="inner">TRY AGAIN</span>
+      </button>
     </div>
   </section>
 
