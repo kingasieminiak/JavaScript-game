@@ -63,23 +63,16 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var Furry = function(){
-  this.x = 0;
-  this.y = 0;
-  this.direction = "bottom";
-}
+var Furry = __webpack_require__(3);
+var Coin = __webpack_require__(2);
 
-var Coin = function(){
-  this.x = Math.floor( Math.random() * 10 );
-  this.y = Math.floor( Math.random() * 10 );
-}
 
 var Game = function(){
   this.board = document.querySelectorAll("#board div");
@@ -193,6 +186,14 @@ var Game = function(){
   };
 };
 
+module.exports = Game;
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Game = __webpack_require__(0);
 
 // rozpoczęcie gry
 
@@ -200,9 +201,9 @@ var buttonStart = document.getElementById("start")
 buttonStart.addEventListener("click", function(event){
 
   document.querySelector(".start-game").classList.add("invisible");
-  // gameOverScores.classList.add("invisible");
   document.getElementById("board").classList.remove("invisible");
   document.getElementById("score").classList.remove("invisible");
+  document.querySelector(".instruction").classList.remove("invisible");
 
   var myGame = new Game();
   myGame.startGame();
@@ -230,6 +231,31 @@ buttonAgain.addEventListener("click", function(event){
   });
 
 });
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var Coin = function(){
+  this.x = Math.floor( Math.random() * 10 );
+  this.y = Math.floor( Math.random() * 10 );
+}
+
+module.exports = Coin;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+var Furry = function(){
+  this.x = 0;
+  this.y = 0;
+  this.direction = "bottom";
+}
+
+module.exports = Furry;
 
 
 /***/ })
