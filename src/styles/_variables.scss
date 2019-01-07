@@ -1,0 +1,7 @@
+$colorPrimary: #641bb8;
+$colorSecondary: #1AF4D7;
+$colorWhite: #fff;
+
+@mixin flex-font($minFont, $maxFont) {
+  font-size: calc(#{$minFont}px + (#{$maxFont} - #{$minFont}) * ((100vw - 600px) / (1440 - 600)));
+}

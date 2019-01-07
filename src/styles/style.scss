@@ -1,6 +1,22 @@
 @import "./variables.scss";
 
+@import "./layout";
+@import "./borad";
+@import "./welcomeScreen";
+
+html,
 body {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
   background: $colorPrimary;
   color: $colorWhite;
+}
+
+.invisible { // need to be removed
+  display: none;
+}
+
+.furry { // need to be removed
+  background-color: $colorSecondary;
 }

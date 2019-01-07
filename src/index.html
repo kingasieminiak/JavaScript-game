@@ -2,149 +2,149 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Javascript Furry game</title>
+    <title>Furry: JavaScript Game</title>
     <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel='stylesheet' href='./style.css'> -->
 </head>
-<body>
 
-  <section class="start-game">
-    <div>
-      <img src="images/furryStart.png" alt="my furry icon">
-      <h1>Welcome to the Furry game</h1>
-      <button type="button" name="button" id="start">
+<body class="game">
+  <div class="game__container">
+    <header class="welcomeScreen">
+      <img class="welcomeScreen__icon" src="images/furryStart.png" alt="my furry icon">
+
+      <h1 class="welcomeScreen__title">Welcome to the Furry game</h1>
+
+      <button type="button" name="button" id="start" class="welcomeScreen__action">
         <span class="inner">PUSH ME TO PLAY</span>
       </button>
-      <p class="device-info">
+
+      <p class="welcomeScreen__text">
         To play this game, use a device with a resolution of 720 pixels or more.
       </p>
-    </div>
-  </section>
+    </header>
 
-  <section id='score' class="invisible">
-    <div>
-      SCORE: <strong> 0</strong>
-    </div>
-  </section>
+    <main>
+      <section id='score' class="invisible">
+        <h2>SCORE: <strong> 0</strong></h2>
+      </section>
 
-  <main>
-    <div class="instruction invisible">
-      <img src="images/idea.png" alt="idea">
-      <p>Use the direction keys to control Furry</p>
-    </div>
-    <section id='board' class="invisible">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div class="instruction invisible">
+        <img src="images/idea.png" alt="idea">
+        <p>Use the direction keys to control Furry</p>
+      </div>
+
+      <section id='board' class="board invisible">
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+        <div class="board__field"></div>
+      </section>
+    </main>
+  
+    <section id='over' class='invisible'>
+      <div>
+        <p>Ups... You lost!</p>
+        <button type="button" name="button" id="play-again">
+          <span class="inner">TRY AGAIN</span>
+        </button>
+      </div>
     </section>
-  </main>
-
-  <section id='over' class='invisible'>
-    <div>
-      <p>Ups... You lost!</p>
-      <button type="button" name="button" id="play-again">
-        <span class="inner">TRY AGAIN</span>
-      </button>
-    </div>
-  </section>
-  <!-- <script src='./bundle.js'></script> -->
+  </div>
 </body>
 </html>

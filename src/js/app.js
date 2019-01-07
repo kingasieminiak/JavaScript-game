@@ -5,7 +5,7 @@ var Game = require("./game.js");
 var buttonStart = document.getElementById("start")
 buttonStart.addEventListener("click", function(event){
 
-  document.querySelector(".start-game").classList.add("invisible");
+  document.querySelector(".welcomeScreen").classList.add("invisible");
   document.getElementById("board").classList.remove("invisible");
   document.getElementById("score").classList.remove("invisible");
   document.querySelector(".instruction").classList.remove("invisible");

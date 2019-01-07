@@ -13,14 +13,15 @@ var Game = function(){
   };
 
   this.showCoin = function(){
-    this.board[ this.index(this.coin.x,this.coin.y) ].classList.add('coin');
+    this.board[ this.index(this.coin.x,this.coin.y) ].classList.add('board__field--jsCoin');
   };
 
   this.cleanUp = function(){
     document.querySelector("#score strong").innerText = this.score;
-    var coinLeft = document.querySelector("#board div.coin");
+    var coinLeft = document.querySelector(".board__field--jsCoin");
+
     if(coinLeft !== null){
-      coinLeft.classList.remove('coin');
+      coinLeft.classList.remove('board__field--jsCoin');
     }
   };
 
@@ -86,7 +87,7 @@ var Game = function(){
 
     if (this.furry.x === this.coin.x && this.furry.y === this.coin.y){
 
-        this.board[ this.index(this.coin.x,this.coin.y) ].classList.remove('coin');
+        this.board[ this.index(this.coin.x,this.coin.y) ].classList.remove('board__field--jsCoin');
 
         this.score += 1;
         document.querySelector("#score strong").innerText = this.score;
