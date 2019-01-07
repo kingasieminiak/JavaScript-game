@@ -4,9 +4,10 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "build": "babel-node buildScripts/build.js"
+    "build": "babel-node buildScripts/build.js",
+    "serve": "babel-node buildScripts/srcServer.js"
   },
-  "author": "",
+  "author": "Kinga Sieminiak",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -15,9 +16,13 @@
     "babel-preset-latest": "^6.24.1",
     "babel-register": "^6.26.0",
     "chalk": "^2.4.2",
+    "compression": "^1.7.3",
     "css-loader": "^2.1.0",
+    "express": "^4.16.4",
+    "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "open": "0.0.5",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
@@ -25,5 +30,8 @@
   },
   "sideEffects": [
     ".scss"
-  ]
+  ],
+  "dependencies": {
+    "webpack-dev-middleware": "^3.5.0"
+  }
 }
