@@ -13,6 +13,10 @@
     & + & {
       min-width: 20%;
       border-left: 1px solid $colorWhite;
+      color: $colorWhite;
+      background: linear-gradient(to left, $colorSecondary 0%, $colorLighten 100%);
+      border-top-right-radius: $borderRadius;
+      border-bottom-right-radius: $borderRadius;
     }
   }
 }
