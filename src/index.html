@@ -50,8 +50,17 @@
           </p>
         </div>
 
-        <section id='score' class="invisible">
-          <h2>SCORE: <strong> 0</strong></h2>
+        <section id='score' class="score invisible">
+          <h2 class="score__text">SCORE</h2>
+          <h2 class="score__text jsScoreCounter">0</h2>
+        </section>
+
+        <section id='over' class='invisible'>
+          <p>Ups... You lost!</p>
+
+          <button class="button" type="button" name="button" id="play-again">
+            <span class="inner">TRY AGAIN</span>
+          </button>
         </section>
 
         <section id='board' class="board invisible">
@@ -157,15 +166,6 @@
           <div class="board__field"></div>
         </section>
       </main>
-    
-      <section id='over' class='invisible'>
-        <div>
-          <p>Ups... You lost!</p>
-          <button class="button" type="button" name="button" id="play-again">
-            <span class="inner">TRY AGAIN</span>
-          </button>
-        </div>
-      </section>
     </div>
   </div>
 

@@ -17,7 +17,7 @@ var Game = function(){
   };
 
   this.cleanUp = function(){
-    document.querySelector("#score strong").innerText = this.score;
+    document.querySelector(".jsScoreCounter").innerText = this.score;
     var coinLeft = document.querySelector(".board__field--jsCoin");
 
     if(coinLeft !== null){
@@ -90,7 +90,7 @@ var Game = function(){
         this.board[ this.index(this.coin.x,this.coin.y) ].classList.remove('board__field--jsCoin');
 
         this.score += 1;
-        document.querySelector("#score strong").innerText = this.score;
+        document.querySelector(".jsScoreCounter").innerText = this.score;
 
         this.coin = new Coin();
 
