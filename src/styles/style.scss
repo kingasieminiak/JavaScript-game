@@ -1,16 +1,51 @@
 @import "./variables.scss";
-
 @import "./layout";
+
+@import "./game";
 @import "./borad";
 @import "./welcomeScreen";
 
 html,
 body {
+  position: relative;
   width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   margin: 0;
   padding: 0;
   background: $colorPrimary;
   color: $colorWhite;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.background {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  min-width: 100vw;
+  min-height: 100vh;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+
+  & > g {
+    transform: translate(0, 80%) scale(1.2);
+  }
+
+  @media #{$screen-sm} {
+    & > g {
+      transform: translate(0, 70%) scale(1.2)
+    }
+  }
+
+  @media #{$screen-md} {
+    & > g {
+      transform: translate(-40%, 63%) scale(1.4)
+    }
+  }
 }
 
 .invisible { // need to be removed

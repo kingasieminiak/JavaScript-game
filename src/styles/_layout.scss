@@ -1,16 +1,28 @@
-.game {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  text-align: center;
+$screen-sizes: (
+  'sm': 600px,
+  'md': 768px,
+  'lg': 1025px,
+  'xl': 1400px
+);
 
-  &__container {
-    width: 100%;
-    max-width: 40rem;
-    margin: 0 auto;
-    padding: 1rem;
-  }
+$sm: 600px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1170px;
+
+@function media-min-width($screen-sizes-name) {
+  @return ('only screen and (min-width: #{map-get($screen-sizes, $screen-sizes-name)})');
 }
+
+@function media-max-width($screen-sizes-name) {
+  @return ('only screen and (max-width: #{map-get($screen-sizes, $screen-sizes-name) - 1px})');
+}
+
+$screen-sm: media-min-width('sm');
+$screen-md: media-min-width('md');
+$screen-lg: media-min-width('lg');
+$screen-xl: media-min-width('xl');
+
+$screen-max-sm: media-max-width('sm');
+$screen-max-md: media-max-width('md');
+$screen-max-lg: media-max-width('lg');
