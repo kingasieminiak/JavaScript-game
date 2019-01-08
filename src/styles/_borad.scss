@@ -10,7 +10,7 @@
     padding-top: calc(100% / 10);
     background: $colorWhite;
     box-shadow: inset 0 0 0px 1px $colorPrimary;
-    border-radius: 5px;
+    border-radius: $borderRadius;
 
     &--jsCoin { // need to be removed
       background: $colorLighten;

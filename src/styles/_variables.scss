@@ -3,6 +3,8 @@ $colorSecondary: #d40000ff;
 $colorLighten: #ff6600ff;
 $colorWhite: #fff;
 
+$borderRadius: 5px;
+
 @mixin flex-font($minFont, $maxFont) {
   font-size: calc(#{$minFont}px + (#{$maxFont} - #{$minFont}) * ((100vw - 600px) / (1440 - 600)));
 }
