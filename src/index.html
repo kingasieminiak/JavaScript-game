@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Furry: JavaScript Game</title>
-    <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -27,7 +27,7 @@
   <div class="game">
     <div class="game__container">
       <header class="welcomeScreen">
-        <img class="welcomeScreen__icon" src="images/furryStart.png" alt="my furry icon">
+        <!-- <img class="welcomeScreen__icon" src="images/furryStart.png" alt="my furry icon"> -->
 
         <h1 class="welcomeScreen__title">Welcome to the Furry game</h1>
 
@@ -37,14 +37,23 @@
       </header>
 
       <main>
+        <div class="instruction jsInstruction">
+          <button class="instruction__switcher jsSwitcher" type="checkbox" id="switcher">
+            <span class="instruction__text">info</span>
+            <svg width="20px" height="20px" viewBox="0 0 92 92" fill="currentColor" class="instruction__arrow">
+            <path d="M63,46c0,1.1-0.4,2.1-1.2,2.9l-26,25C35,74.6,34,75,33,75c-1.1,0-2.1-0.4-2.9-1.2c-1.5-1.6-1.5-4.1,0.1-5.7
+              l23-22.1l-23-22.1c-1.6-1.5-1.6-4.1-0.1-5.7c1.5-1.6,4.1-1.6,5.7-0.1l26,25C62.6,43.9,63,44.9,63,46z"/>
+            </svg>
+          </button>
+
+          <p class="instruction__content" for="switcher">
+            Use the direction keys to control Furry. To pause/play the game use space key.
+          </p>
+        </div>
+
         <section id='score' class="invisible">
           <h2>SCORE: <strong> 0</strong></h2>
         </section>
-
-        <div class="instruction invisible">
-          <img src="images/idea.png" alt="idea">
-          <p>Use the direction keys to control Furry</p>
-        </div>
 
         <section id='board' class="board invisible">
           <div class="board__field"></div>

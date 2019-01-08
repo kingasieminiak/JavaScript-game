@@ -37,3 +37,6 @@ buttonAgain.addEventListener("click", function(event){
 
 });
 
+document.querySelector(".jsSwitcher").addEventListener("click", () => {
+  document.querySelector(".jsInstruction").classList.toggle('instruction--active');
+});
