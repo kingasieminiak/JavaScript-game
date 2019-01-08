@@ -1,0 +1,38 @@
+.button {
+  position: relative;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  background: transparent;
+  border: none;
+  color: $colorWhite;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 3px 14px 1px rgba($colorPrimary, .13);
+  outline-color: $colorSecondary;
+
+  &:before {
+    position: absolute;
+    top: -5%;
+    left: -1%;
+    width: 300%;
+    height: 110%;
+    transition: transform .2s ease-in-out;
+    background: linear-gradient(to left, $colorLighten 0%, $colorSecondary 50%, $colorLighten 100%);
+    content: '';
+    z-index: -1;
+  }
+
+  &:hover {
+    &:before {
+     transform: translateX(-50%); 
+    }
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
