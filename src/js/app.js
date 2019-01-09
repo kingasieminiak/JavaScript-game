@@ -22,7 +22,13 @@ class App {
   }
 
   attachKeyEvent() {
-    document.addEventListener("keydown", (event) => this.game.turnFurry(event));
+    document.addEventListener("keydown", (event) => {
+      this.game.turnFurry(event);
+
+      if(event.which === 32) {
+        this.game.togglePauseGame();
+      }
+    });
   }
 
   startGame() {

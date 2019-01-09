@@ -11,17 +11,21 @@ class Game {
     this.furry = new Furry();
     this.coin = new Coin();
     this.score = 0;
-    this.idSetInterval = null;
+    this.intervalId = null;
+    this.isGamePaused = false;
   }
 
   startGame() {
     this.showFurry();
     this.showCoin();
 
-    this.idSetInterval = setInterval(() => {
-      this.moveFurry();
-    }, 250);
+    this.intervalId = setInterval(() => this.moveFurry(), 250);
   };
+
+  togglePauseGame() {
+    this.isGamePaused = !this.isGamePaused;
+    this.isGamePaused ? clearInterval(this.intervalId) : this.intervalId = setInterval(() => this.moveFurry(), 250)
+  }
 
   activeIndex(x, y) {
     return x + (y * 10);
@@ -99,7 +103,7 @@ class Game {
   gameOver() {
     if ((this.furry.x < 0 || this.furry.x > 9) || (this.furry.y < 0 || this.furry.y > 9)) {
 
-      clearInterval(this.idSetInterval);
+      clearInterval(this.intervalId);
       this.hideVisibleFurry();
 
       this.board.classList.add("invisible");
