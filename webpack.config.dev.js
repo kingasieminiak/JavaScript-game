@@ -6,14 +6,11 @@ export default {
   devtool: 'inline-source-map',
   target: 'web',
   watch: true,
-  entry: [
-    path.resolve(__dirname, 'src/js/app'),
-    path.resolve(__dirname, 'src/styles/style.scss'),
-  ],
+  entry: path.resolve(__dirname, 'src/js/app'),
   output: {
-    path: path.resolve(__dirname, 'src'),
-    publicPath: '/',
-    filename: 'bundle.js'
+    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -25,6 +22,16 @@ export default {
           { loader: 'css-loader' },
           { loader: 'sass-loader'},
         ]
+      },
+      {
+        test: /\.(png|jpe?g|svg)$/,
+        loader: 'file-loader',
+        include: path.resolve(__dirname, 'src/images/'),
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'images/',
+          publicPath: 'images/',
+        }
       },
     ]
   },

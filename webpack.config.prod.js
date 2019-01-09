@@ -5,18 +5,20 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 export default {
   mode: "production",
   target: 'web',
-  entry: [
-    path.resolve(__dirname, 'src/js/app'),
-    path.resolve(__dirname, 'src/styles/style.scss'),
-  ],
+  entry: path.resolve(__dirname, 'src/js/app'),
   output: {
-    path: path.resolve(__dirname, "dist"), 
     filename: "bundle.js",
-    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.js$/,
+        include: path.resolve(__dirname, 'src/js'),
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
       {
         test: /\.scss$/,
         sideEffects: true,
@@ -25,7 +27,18 @@ export default {
           {loader: 'css-loader'},
           {loader: 'sass-loader'},
         ]
-    },
+      },
+      {
+        test: /\.(png|jpe?g|svg)$/,
+        loader: 'file-loader',
+        include: path.resolve(__dirname, 'src/images'),
+        exclude: /node_modules/,
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'images/',
+          publicPath: 'images/',
+        }
+      },
     ]
   },
   plugins: [
