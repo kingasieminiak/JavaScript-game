@@ -1,42 +1,55 @@
-var Game = require("./game.js");
+import Game from './game';
+class App {
+  constructor() {
+    this.game = new Game();
 
-// rozpoczęcie gry
+    this.instruction = document.querySelector(".jsInstruction");
+    this.startButton = document.getElementById("start");
+    this.restartButton = document.getElementById("play-again");
+    this.welcomeScreen = document.querySelector(".welcomeScreen");
+    this.scoreBoard = document.getElementById("score");
+  }
 
-var buttonStart = document.getElementById("start")
-buttonStart.addEventListener("click", function(event){
+  init() {
+    this.attachEventListeners();
+  }
 
-  document.querySelector(".welcomeScreen").classList.add("invisible");
-  document.getElementById("board").classList.remove("invisible");
-  document.getElementById("score").classList.remove("invisible");
-  document.querySelector(".instruction").classList.remove("invisible");
+  attachEventListeners() {
+    this.instruction.addEventListener('click', () => this.switchInstruction());
 
-  var myGame = new Game();
-  myGame.startGame();
+    this.startButton.addEventListener("click", (event) => this.startGame());
+    this.restartButton.addEventListener("click", (event) => this.restartGame())
+  }
 
-  document.addEventListener("keydown", function(event){
-      myGame.turnFurry(event);
-  });
-});
+  attachKeyEvent() {
+    document.addEventListener("keydown", (event) => this.game.turnFurry(event));
+  }
 
-// event dla buttona play-again
+  startGame() {
+    this.welcomeScreen.classList.add("invisible");
+    this.scoreBoard.classList.remove("invisible");
+    this.game.board.classList.remove("invisible");
 
-var buttonAgain = document.getElementById("play-again");
-buttonAgain.addEventListener("click", function(event){
+    this.game.startGame();
+    this.attachKeyEvent();
+  }
 
-  var gameOverScores = document.getElementById("over");
-  gameOverScores.classList.add("invisible");
-  document.getElementById("board").classList.remove("invisible");
+  restartGame() {
+    this.game.gameOverBoard.classList.add("invisible");
+    this.game.board.classList.remove("invisible");
 
-  var nextGame = new Game();
-  nextGame.cleanUp();
-  nextGame.startGame();
+    this.game = new Game();
+    this.game.cleanUp();
+    this.game.startGame();
+    this.attachKeyEvent();
+  }
 
-  document.addEventListener("keydown", function(event){
-      nextGame.turnFurry(event);
-  });
+  switchInstruction() {
+    this.instruction.classList.toggle('instruction--active');
+  }
+}
 
-});
-
-document.querySelector(".jsSwitcher").addEventListener("click", () => {
-  document.querySelector(".jsInstruction").classList.toggle('instruction--active');
+document.addEventListener("DOMContentLoaded", () => {
+  const app = new App();
+  app.init();
 });

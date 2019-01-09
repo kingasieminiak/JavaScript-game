@@ -1,73 +1,74 @@
-var Furry = require("./furry.js");
-var Coin = require("./coin.js");
+import Furry from './furry';
+import Coin from './coin';
 
+class Game {
+  constructor() {
+    this.board = document.querySelector(".jsBoard");
+    this.fields = this.board.querySelectorAll(".jsField");
+    this.scoreCounter = document.querySelector(".jsScoreCounter");
+    this.gameOverBoard = document.querySelector(".jsGameOver");
 
-var Game = function(){
-  this.board = document.querySelectorAll("#board div");
-  this.furry = new Furry();
-  this.coin = new Coin();
-  this.score = 0;
+    this.furry = new Furry();
+    this.coin = new Coin();
+    this.score = 0;
+    this.idSetInterval = null;
+  }
 
-  this.index = function(x, y){
+  startGame() {
+    this.showFurry();
+    this.showCoin();
+
+    this.idSetInterval = setInterval(() => {
+      this.moveFurry();
+    }, 250);
+  };
+
+  activeIndex(x, y) {
     return x + (y * 10);
   };
 
-  this.showCoin = function(){
-    this.board[ this.index(this.coin.x,this.coin.y) ].classList.add('board__field--jsCoin');
+  showCoin() {
+    this.fields[this.activeIndex(this.coin.x, this.coin.y)].classList.add('board__field--jsCoin');
   };
 
-  this.cleanUp = function(){
-    document.querySelector(".jsScoreCounter").innerText = this.score;
-    var coinLeft = document.querySelector(".board__field--jsCoin");
+  showFurry() {
+    this.fields[this.activeIndex(this.furry.x, this.furry.y)].classList.add("furry");
+ };
 
-    if(coinLeft !== null){
+  cleanUp() {
+    this.scoreCounter.innerText = this.score;
+    const coinLeft = document.querySelector(".board__field--jsCoin");
+
+    if(coinLeft !== null) {
       coinLeft.classList.remove('board__field--jsCoin');
     }
   };
 
-  this.showFurry = function(){
-     this.board[ this.index(this.furry.x, this.furry.y) ].classList.add("furry");
-  };
-
-  this.hideVisibleFurry = function(){
-    var classFurry = document.querySelector(".furry");
+  hideVisibleFurry() {
+    const classFurry = document.querySelector(".furry");
     classFurry.classList.remove('furry');
   };
 
-  this.moveFurry = function(){
-
-    this.hideVisibleFurry();
-
+  moveFurry() {
     if(this.furry.direction === "right") {
-        this.furry.x += 1;
-    } else if (this.furry.direction === "left"){
+      this.furry.x += 1;
+    } else if (this.furry.direction === "left") {
       this.furry.x -= 1;
-    } else if (this.furry.direction === "top"){
-        this.furry.y -= 1;
-    } else if (this.furry.direction === "bottom"){
-        this.furry.y += 1;
+    } else if (this.furry.direction === "top") {
+      this.furry.y -= 1;
+    } else if (this.furry.direction === "bottom") {
+      this.furry.y += 1;
     };
 
-    if(!this.gameOver()){
+    if(!this.gameOver()) {
+      this.hideVisibleFurry();
       this.checkCoinCollision();
       this.showFurry();
     }
   };
 
-  this.startGame = function(){
-
-    this.showFurry();
-    this.showCoin();
-
-    var self = this;
-    this.idSetInterval = setInterval( function(){
-      self.moveFurry();
-    }, 250);
-  };
-
-  this.turnFurry = function(event){
-
-    switch (event.which){
+  turnFurry(event) {
+    switch (event.which) {
       case 37:
         this.furry.direction = "left";
         break;
@@ -83,36 +84,32 @@ var Game = function(){
     };
   };
 
-  this.checkCoinCollision = function(){
-
-    if (this.furry.x === this.coin.x && this.furry.y === this.coin.y){
-
-        this.board[ this.index(this.coin.x,this.coin.y) ].classList.remove('board__field--jsCoin');
+  checkCoinCollision() {
+    if (this.furry.x === this.coin.x && this.furry.y === this.coin.y) {
+        this.fields[this.activeIndex(this.coin.x, this.coin.y)].classList.remove('board__field--jsCoin');
 
         this.score += 1;
-        document.querySelector(".jsScoreCounter").innerText = this.score;
-
+        this.scoreCounter.innerText = this.score;
         this.coin = new Coin();
 
         this.showCoin();
     };
   };
 
-  this.gameOver = function(){
-
-    if ( (this.furry.x < 0 || this.furry.x > 9) || (this.furry.y < 0 || this.furry.y > 9) ){
+  gameOver() {
+    if ((this.furry.x < 0 || this.furry.x > 9) || (this.furry.y < 0 || this.furry.y > 9)) {
 
       clearInterval(this.idSetInterval);
-      //this.hideVisibleFurry();
+      this.hideVisibleFurry();
 
-      document.getElementById("board").classList.add("invisible");
-      var gameOverScores = document.getElementById("over");
-      gameOverScores.classList.remove("invisible");
+      this.board.classList.add("invisible");
+      this.gameOverBoard.classList.remove("invisible");
+
       return true;
-    }else{
+    } else {
       return false;
-    };
+    }
   };
-};
+}
 
-module.exports = Game;
+export default Game;
