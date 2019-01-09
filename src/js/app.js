@@ -1,4 +1,8 @@
 import Game from './game';
+import '../styles/style.scss';
+import '../images/furry.svg';
+import '../images/coin.svg';
+
 class App {
   constructor() {
     this.game = new Game();
