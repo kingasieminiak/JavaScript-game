@@ -57,5 +57,9 @@ body {
 }
 
 .furry { // need to be removed
-  background-color: $colorSecondary;
+  background-color: $colorPrimary;
+  background-image: url('../images/furry.svg');
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
 }

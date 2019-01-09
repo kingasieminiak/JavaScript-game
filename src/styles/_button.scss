@@ -20,7 +20,7 @@
     left: -1%;
     width: 300%;
     height: 110%;
-    transition: transform .2s ease-in-out;
+    transition: transform .4s ease-in-out;
     background: linear-gradient(to left, $colorLighten 0%, $colorSecondary 50%, $colorLighten 100%);
     content: '';
     z-index: -1;
@@ -28,7 +28,7 @@
 
   &:hover {
     &:before {
-     transform: translateX(-50%); 
+     transform: translateX(-50%);
     }
   }
 
