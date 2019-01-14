@@ -7,6 +7,7 @@
 @import "./instruction";
 @import "./button";
 @import "./score";
+@import "./jsClasses";
 
 html,
 body {
@@ -50,16 +51,4 @@ body {
       transform: translate(-40%, 63%) scale(1.4)
     }
   }
-}
-
-.invisible { // need to be removed
-  display: none;
-}
-
-.furry { // need to be removed
-  background-color: $colorPrimary;
-  background-image: url('../images/furry.svg');
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
 }

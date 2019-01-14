@@ -1,4 +1,5 @@
 .board {
+  position: relative;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -12,13 +13,5 @@
     padding-top: calc(100% / 10);
     background: rgba($colorWhite, .08);
     box-shadow: inset 0 0 0px 1px $colorWhite;
-
-    &--jsCoin { // need to be removed
-      background-color: $colorLighten;
-      background-image: url('../images/coin.svg');
-      background-size: 80%;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
   }
 }

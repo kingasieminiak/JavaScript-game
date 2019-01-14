@@ -1,0 +1,18 @@
+.invisible {
+  display: none;
+}
+
+.jsFurry {
+  @extend %boardElement;
+
+  background-color: $colorPrimary;
+  background-image: url('../images/furry.svg');
+}
+
+.jsCoin {
+  @extend %boardElement;
+
+  background-color: $colorLighten;
+  background-image: url('../images/coin.svg');
+
+}

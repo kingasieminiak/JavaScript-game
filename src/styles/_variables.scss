@@ -8,3 +8,13 @@ $borderRadius: 5px;
 @mixin flex-font($minFont, $maxFont) {
   font-size: calc(#{$minFont}px + (#{$maxFont} - #{$minFont}) * ((100vw - 600px) / (1440 - 600)));
 }
+
+%boardElement {
+  position: absolute;
+  width: 10%;
+  height: 0;
+  padding-top: 10%;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
