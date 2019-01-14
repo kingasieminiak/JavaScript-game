@@ -8,6 +8,7 @@ class App {
     this.game = new Game();
 
     this.instruction = document.querySelector(".jsInstruction");
+
     this.startButton = document.getElementById("start");
     this.restartButton = document.getElementById("play-again");
     this.welcomeScreen = document.querySelector(".welcomeScreen");
@@ -25,23 +26,12 @@ class App {
     this.restartButton.addEventListener("click", (event) => this.restartGame())
   }
 
-  attachKeyEvent() {
-    document.addEventListener("keydown", (event) => {
-      this.game.turnFurry(event);
-
-      if(event.which === 32) {
-        this.game.togglePauseGame();
-      }
-    });
-  }
-
   startGame() {
     this.welcomeScreen.classList.add("invisible");
     this.scoreBoard.classList.remove("invisible");
     this.game.board.classList.remove("invisible");
 
     this.game.startGame();
-    this.attachKeyEvent();
   }
 
   restartGame() {
@@ -49,9 +39,7 @@ class App {
     this.game.board.classList.remove("invisible");
 
     this.game = new Game();
-    this.game.cleanUp();
     this.game.startGame();
-    this.attachKeyEvent();
   }
 
   switchInstruction() {
