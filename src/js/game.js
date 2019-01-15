@@ -19,6 +19,7 @@ class Game {
     this.showFurry();
     this.showCoin();
 
+    this.scoreCounter.innerText = this.score;
     document.addEventListener("keydown", this.keyDownEvents);
     this.intervalId = setInterval(() => this.moveFurry(), 250);
   };
