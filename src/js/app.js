@@ -8,11 +8,10 @@ class App {
     this.game = new Game();
 
     this.instruction = document.querySelector(".jsInstruction");
-
-    this.startButton = document.getElementById("start");
-    this.restartButton = document.getElementById("play-again");
-    this.welcomeScreen = document.querySelector(".welcomeScreen");
-    this.scoreBoard = document.getElementById("score");
+    this.startButton = document.querySelector(".jsStartButton");
+    this.restartButton = document.querySelector(".jsRestartButton");
+    this.welcomeScreen = document.querySelector(".jsWelcomeScreen");
+    this.scoreBoard = document.querySelector(".jsScoreBoard");
   }
 
   init() {
@@ -21,9 +20,8 @@ class App {
 
   attachEventListeners() {
     this.instruction.addEventListener('click', () => this.switchInstruction());
-
-    this.startButton.addEventListener("click", (event) => this.startGame());
-    this.restartButton.addEventListener("click", (event) => this.restartGame())
+    this.startButton.addEventListener("click", () => this.startGame());
+    this.restartButton.addEventListener("click", () => this.restartGame());
   }
 
   startGame() {
