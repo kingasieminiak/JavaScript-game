@@ -43,9 +43,19 @@ class App {
   switchInstruction() {
     this.instruction.classList.toggle('instruction--active');
   }
+
+  hidePreloading() {
+    setTimeout(() => {
+      document.querySelector(".pagePreload").style.zIndex = '-1';
+      document.querySelector(".game").style.transform = 'translateY(0)';
+      this.welcomeScreen.style.transform = 'translateY(0)';
+      document.body.removeAttribute('style');
+    }, 3000)
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = new App();
   app.init();
+  app.hidePreloading();
 });

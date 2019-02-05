@@ -18,8 +18,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: $colorPrimary;
   color: $colorWhite;
+  background: $colorSecondary;
 }
 
 * {
@@ -28,7 +28,7 @@ body {
 
 .background {
   position: absolute;
-  z-index: 0;
+  z-index: 2;
   top: 50%;
   left: 50%;
   min-width: 100vw;
